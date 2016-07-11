@@ -1,0 +1,64 @@
+
+<script>
+
+  function displayList(){
+    document.write("<h1>Shopping List:</h1>" + "<br />")
+    countItems("Apple");
+    countItems("Orange");
+    countItems("Banana");
+    countItems("Watermelon");
+    countItems("Blueberry");
+    
+    displayPrice();
+  }
+
+  function displayPrice( ){
+    var sum = 0;
+    for (var i = 0; i < myPrice.length; i++)
+      sum = myPrice[i] + sum;
+      document.write("<br />" + "Your total price is: $" + sum.toFixed(2));
+  }
+
+  function pushItem(item, price){
+    myItems.push(item);
+    myPrice.push(price);
+  }
+
+  function countItems(item){
+    var count = 0;
+    for (var i = 0; i < myItems.length; i++){
+      if(myItems[i] == item){
+        count++;}
+    }
+    if (count > 0)
+    document.write(item + " x " + count + "<br />");
+  }
+  
+ 	var myItems = [ ];
+  var myPrice = [ ];
+
+</script>
+
+<h1>The Best Fruit Stand in All the Land</h1>
+Apples: $0.79
+<button type = "button"
+        onclick= "pushItem('Apple', 0.79)">Add item</button>
+<br>
+Oranges: $0.85
+<button type = "button"
+        onclick="pushItem('Orange', 0.85)">Add item</button>
+<br>
+Bananas: $0.85
+<button type = "button"
+        onclick="pushItem('Banana', 0.85)">Add item</button>
+<br>
+Watermelon: $1.50
+<button type = "button"
+        onclick="pushItem('Watermelon', 1.50)">Add item</button>
+<br>
+Blueberries: $2.00
+<button type = "button"
+        onclick="pushItem('Blueberry', 2.00)">Add item</button>
+<br>
+<button type = "button"
+        onclick ="displayList()">Display</button>
